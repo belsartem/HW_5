@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
 group = 'qa.abels'
@@ -9,13 +9,15 @@ repositories {
     mavenCentral()
 }
 
-compileTestJava {
-    options.encoding = 'UTF-8'
+dependencies {
+    testImplementation (
+            "com.codeborne:selenide:7.0.4",
+            "org.junit.jupiter:junit-jupiter:5.10.1",
+            )
 }
 
-dependencies {
-    testImplementation platform('org.junit.jupiter:junit-jupiter:5.10.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+compileTestJava {
+    options.encoding = 'UTF-8'
 }
 
 test {
